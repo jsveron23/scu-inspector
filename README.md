@@ -5,7 +5,7 @@
 
 Please, write [issue](https://github.com/jsveron23/scu-inspector/issues) or PR, if have any feedback.
 
-It does not display after filtered by false in SCU. So you can just check what props were not apply filtering.
+It does not display after filtered by false in SCU. So you can just check what props were not apply by filtered.
 
 ## Synopsis
 
