@@ -49,15 +49,15 @@ import scuInspector from 'scu-inspector'
 
   // [optional] it displays in Development Tool as console.table
   // default is false
-  isCollapsed = true,
+  isCollapsed: true,
 
 
   // [optional] show specific keys of props
   // ignoring exclude
-  include = ['name', 'homepage'],
+  include: ['name', 'homepage'],
 
   // [optional] hide specific keys of props
-  exclude = ['age', 'address', 'location']
+  exclude: ['age', 'address', 'location']
 })
 shouldComponentUpdate (nextProps) {
   ...
