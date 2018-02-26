@@ -1,12 +1,17 @@
+# scu-inspector
+
 [![npm](https://img.shields.io/npm/v/scu-inspector.svg?style=flat-square)](https://www.npmjs.com/package/scu-inspector) [![npm](https://img.shields.io/npm/l/scu-inspector.svg?style=flat-square)](https://www.npmjs.com/package/scu-inspector)
 
-# scu-inspector
 
 Please, write [issue](https://github.com/jsveron23/scu-inspector/issues) or PR, if have any feedback.
 
+It does not display after filtered by false in SCU. So you can just check what props were not apply filtering.
+
 ## Synopsis
 
-The purpose is displaying props changes of shouldComponentUpdate(React). It is designed to use by single component by using decorator. If you want to apply every React components by using just once, try to use NPM package that '[why-did-you-update](why-did-you-update)'.
+I used to display by using console.log to check prop changes in Console tab. But it was hard to recognize what was changed or not. So, I implemented module to check as table view in Console tab to avoid annoying.
+
+Purpose is displaying props changes of shouldComponentUpdate(React). It is designed to use by single component by using decorator. If you want to apply every React components by using just once, use '[why-did-you-update](why-did-you-update)'.
 
 ## Installation
 
@@ -20,36 +25,39 @@ npm install --save scu-inspector
 
 ## Usage
 
+**Babel**
+
+```JSON
+"plugins": [
+  "transform-decorators-legacy"
+]
+```
+
+**Javascript (React)**
+
 ```javascript
 import scuInspector from 'scu-inspector'
 
 // with options
 @scuInspector({
-  // display props changes
-  // all(default), changed, none
-  // optional
-  mode: 'changed',
+  // [optional] display props changes
+  mode: 'changed', // all(default), changed, none
 
-  // default display name will be using component name
-  // but if you want to use unique string to recognize components
-  // key name of props
-  // optional
-  uniqueKey: 'position',
+  // [optional] default display name will be using component name
+  // but if you want to use unique string to recognize among components
+  uniqueKey: 'position', // key name of props
 
-  // it displays in Development Tool as console.table
-  // default display will be not collapsed
-  // optional
-  isCollapsed = false,
+  // [optional] it displays in Development Tool as console.table
+  // default is false
+  isCollapsed = true,
 
 
-  // show specific keys of props
+  // [optional] show specific keys of props
   // ignoring exclude
-  // optional
-  include = ['name', 'address'],
+  include = ['name', 'homepage'],
 
-  // hide specific keys of props
-  // optional
-  exclude = ['age', 'location']
+  // [optional] hide specific keys of props
+  exclude = ['age', 'address', 'location']
 })
 shouldComponentUpdate (nextProps) {
   ...

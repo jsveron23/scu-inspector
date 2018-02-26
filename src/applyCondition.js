@@ -1,6 +1,6 @@
 import { isExist } from './utils'
 
-export default function applyConditions (include, exclude) {
+export default function applyCondition (include, exclude) {
   return (key) => isExist(include)
     ? include.includes(key)
     : !exclude.includes(key)

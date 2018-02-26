@@ -1,9 +1,9 @@
 import { isExist } from './utils'
 import processor from './processor'
-import applyConditions from './applyCondition'
+import applyCondition from './applyCondition'
 import getDisplayName from './getDisplayName'
 
-const __MODE__ = 'all' // all, changed, none
+const __MODE__ = 'all'
 const __INCLUDES__ = null
 const __EXCLUDES__ = ['children']
 const __THROW_MSG__ = 'It has to be applied to shouldComponentUpdate method'
@@ -17,7 +17,7 @@ function scuInspector (options = {}) {
     exclude = __EXCLUDES__
   } = options
   const _processor = processor(mode)
-  const _applyCondition = applyConditions(include, exclude)
+  const _applyCondition = applyCondition(include, exclude)
 
   return (target, name, descriptor) => {
     if (name !== 'shouldComponentUpdate') {
