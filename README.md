@@ -1,6 +1,7 @@
 # scu-inspector
 
-[![npm](https://img.shields.io/npm/v/scu-inspector.svg?style=flat-square)](https://www.npmjs.com/package/scu-inspector) [![npm](https://img.shields.io/npm/l/scu-inspector.svg?style=flat-square)](https://www.npmjs.com/package/scu-inspector)
+[![npm](https://img.shields.io/npm/v/scu-inspector.svg)](https://www.npmjs.com/package/scu-inspector) [![npm](https://img.shields.io/npm/l/scu-inspector.svg)](https://www.npmjs.com/package/scu-inspector)
+[![Build Status](https://travis-ci.org/jsveron23/scu-inspector.svg?branch=master)](https://travis-ci.org/jsveron23/scu-inspector)
 
 Please, write [issue](https://github.com/jsveron23/scu-inspector/issues) or PR, if have any feedback.
 
