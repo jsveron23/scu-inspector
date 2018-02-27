@@ -51,6 +51,11 @@ import scuInspector from 'scu-inspector'
   // default is false
   isCollapsed: true,
 
+  // [optional]
+  // logs off in production by default
+  // but you can turn it off or not manually
+  // default is true
+  debug: false,
 
   // [optional] show specific keys of props
   // ignoring exclude
