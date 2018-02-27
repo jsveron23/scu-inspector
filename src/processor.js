@@ -1,7 +1,8 @@
 import * as Utils from './utils'
 
 export default function processor (mode) {
-  return ({ prevProp, nextProp }) => (res, key) => {
+  return (props) => (res, key) => {
+    let { prevProp, nextProp } = props
     let _isDiff
 
     if (Utils.isFunction(nextProp)) {

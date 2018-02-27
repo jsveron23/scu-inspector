@@ -12,12 +12,17 @@ function scuInspector (options = {}) {
   const {
     uniqueKey = '',
     isCollapsed = false,
+    debug = process.env.NODE_ENV !== 'production',
     mode = __MODE__,
     include = __INCLUDES__,
     exclude = __EXCLUDES__
   } = options
   const _processor = processor(mode)
   const _applyCondition = applyCondition(include, exclude)
+
+  if (!debug) {
+    return (target, name, descriptor) => descriptor
+  }
 
   return (target, name, descriptor) => {
     if (name !== 'shouldComponentUpdate') {
@@ -28,24 +33,19 @@ function scuInspector (options = {}) {
     const oldValue = descriptor.value
 
     descriptor.value = function (nextProps) {
-      // result from old SCU
       const bool = oldValue.apply(this, arguments)
 
-      // @NOTE
-      // - if filtered from old SCU,
-      // - it doesn't display
       if (bool) {
         const displayName = _getDisplayName(nextProps[uniqueKey])
         const prevProps = this.props
 
         /** @callback */
-        const _reducer = (res, key) =>
-          _processor({
-            prevProp: prevProps[key],
-            nextProp: nextProps[key],
-            prevProps,
-            nextProps
-          })(res, key)
+        const _reducer = (res, key) => _processor({
+          prevProp: prevProps[key],
+          nextProp: nextProps[key],
+          prevProps,
+          nextProps
+        })(res, key)
 
         /** @callback */
         const _display = (result) => {

@@ -1,14 +1,14 @@
 {
   "name": "scu-inspector",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "Displaying props changes of shouldComponentUpdate",
   "main": "lib/bundle.js",
   "scripts": {
-    "build": "rollup -c",
     "clean": "rimraf lib",
-    "lint": "eslint src",
-    "test": "jest --config ./jest.config.js",
+    "build": "rollup --config ./config/rollup.config.js",
+    "test": "jest --config ./config/jest.config.js",
     "test:watch": "npm test -- --watch",
+    "lint": "eslint src",
     "prepublish": "npm run clean && npm run build"
   },
   "engines": {

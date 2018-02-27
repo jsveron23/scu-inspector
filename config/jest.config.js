@@ -1,6 +1,6 @@
 module.exports = {
-  rootDir: '.',
-  roots: ['<rootDir>/src', '<rootDir>/test/'],
+  rootDir: '../',
+  roots: ['<rootDir>/src', '<rootDir>/test'],
   transform: {
     '^.+\\.js$': 'babel-jest'
   }

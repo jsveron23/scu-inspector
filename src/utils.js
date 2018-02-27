@@ -5,22 +5,16 @@ const _isEmpty = (v) => (
   (v.constructor === Object && Object.keys(v).length === 0)
 )
 const _isExist = (v) => !_isEmpty(v)
+const _isObject = (v) => !!v && v.constructor === Object
+const _isArray = (v) => Array.isArray(v)
 
 export const isEmpty = (...x) => x.every(_isEmpty)
 export const isExist = (...x) => x.every(_isExist)
 export const isBoolean = (v) => typeof v === 'boolean'
 export const isString = (v) => typeof v === 'string'
 export const isNumber = (v) => typeof v === 'number'
-export const isObject = (...x) => {
-  const _isObject = (v) => !!v && v.constructor === Object
-
-  return x.every(_isObject)
-}
-export const isArray = (...x) => {
-  const _isArray = (v) => Array.isArray(v)
-
-  return x.every(_isArray)
-}
+export const isObject = (...x) => x.every(_isObject)
+export const isArray = (...x) => x.every(_isArray)
 export const isFunction = (v) => typeof v === 'function'
 export const isDiff = (a) => (b) => JSON.stringify(a) !== JSON.stringify(b)
 export const diff = (a) => (b) => {
