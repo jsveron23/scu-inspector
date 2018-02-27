@@ -3,27 +3,21 @@
 [![npm](https://img.shields.io/npm/v/scu-inspector.svg)](https://www.npmjs.com/package/scu-inspector) [![npm](https://img.shields.io/npm/l/scu-inspector.svg)](https://www.npmjs.com/package/scu-inspector)
 [![Build Status](https://travis-ci.org/jsveron23/scu-inspector.svg?branch=master)](https://travis-ci.org/jsveron23/scu-inspector)
 
-Please, write [issue](https://github.com/jsveron23/scu-inspector/issues) or PR, if have any feedback.
+Displaying props changes of React component by using ES2017 decorator on  'shouldComponentUpdate'. And it is designed to use by single component. If you want to apply every React components on your application by using once, use '[why-did-you-update](https://github.com/maicki/why-did-you-update)'.
 
-It does not display after filtered by false in SCU. So you can just check what props were not apply by filtered.
+## Getting Started
 
-## Synopsis
+I used to display by using console.log for checking prop changes in Console tab. But it was hard to recognize what was changed or not. So, I implemented module to check as table view in Console tab. It does not display after filtered to not render in SCU. So you can just check what props were not apply by filtered.
 
-I used to display by using console.log to check prop changes in Console tab. But it was hard to recognize what was changed or not. So, I implemented module to check as table view in Console tab to avoid annoying.
+Please, write [issue](https://github.com/jsveron23/scu-inspector/issues) or PR, if you have any feedback.
 
-Purpose is displaying props changes of shouldComponentUpdate(React). It is designed to use by single component by using decorator. If you want to apply every React components by using just once, use '[why-did-you-update](https://github.com/maicki/why-did-you-update)'.
+### Prerequisites
 
-## Installation
+You may need to install 'babel-plugin-transform-decorators-legacy' to use ES2017 Decorator.
 
 ```bash
-npm install --save scu-inspector
+npm install --save-dev babel-plugin-transform-decorators-legacy
 ```
-
-## Screenshot
-
-![Screenshot](screenshot.png)
-
-## Usage
 
 **Babel**
 
@@ -33,7 +27,17 @@ npm install --save scu-inspector
 ]
 ```
 
-**Javascript (React)**
+### Installation
+
+```bash
+npm install --save scu-inspector
+```
+
+### Screenshot
+
+![Screenshot](screenshot.png)
+
+### Usage
 
 ```javascript
 import scuInspector from 'scu-inspector'
