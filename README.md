@@ -11,7 +11,7 @@ It does not display after filtered by false in SCU. So you can just check what p
 
 I used to display by using console.log to check prop changes in Console tab. But it was hard to recognize what was changed or not. So, I implemented module to check as table view in Console tab to avoid annoying.
 
-Purpose is displaying props changes of shouldComponentUpdate(React). It is designed to use by single component by using decorator. If you want to apply every React components by using just once, use '[why-did-you-update](why-did-you-update)'.
+Purpose is displaying props changes of shouldComponentUpdate(React). It is designed to use by single component by using decorator. If you want to apply every React components by using just once, use '[why-did-you-update](https://github.com/maicki/why-did-you-update)'.
 
 ## Installation
 
