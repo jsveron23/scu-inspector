@@ -8,15 +8,14 @@ const __INCLUDES__ = null
 const __EXCLUDES__ = ['children']
 const __THROW_MSG__ = 'It has to be applied to shouldComponentUpdate method'
 
-function scuInspector (options = {}) {
-  const {
-    uniqueKey = '',
-    isCollapsed = false,
-    debug = process.env.NODE_ENV !== 'production',
-    mode = __MODE__,
-    include = __INCLUDES__,
-    exclude = __EXCLUDES__
-  } = options
+function scuInspector ({
+  uniqueKey = '',
+  isCollapsed = false,
+  debug = process.env.NODE_ENV !== 'production',
+  mode = __MODE__,
+  include = __INCLUDES__,
+  exclude = __EXCLUDES__
+} = {}) {
   const _processor = processor(mode)
   const _applyCondition = applyCondition(include, exclude)
 
@@ -38,16 +37,17 @@ function scuInspector (options = {}) {
       if (bool) {
         const displayName = _getDisplayName(nextProps[uniqueKey])
         const prevProps = this.props
+        const propsGrp = {
+          prevProps,
+          nextProps
+        }
 
-        /** @callback */
         const _reducer = (res, key) => _processor({
           prevProp: prevProps[key],
           nextProp: nextProps[key],
-          prevProps,
-          nextProps
+          ...propsGrp
         })(res, key)
 
-        /** @callback */
         const _display = (result) => {
           if (isExist(result)) {
             const groupStart = console[isCollapsed ? 'groupCollapsed' : 'group']

@@ -5,8 +5,8 @@
   "main": "lib/bundle.js",
   "scripts": {
     "clean": "rimraf lib",
-    "build": "rollup --config ./config/rollup.config.js",
-    "test": "jest --config ./config/jest.config.js",
+    "build": "rollup --config ./rollup.config.js",
+    "test": "jest --config ./jest.config.js",
     "test:watch": "npm test -- --watchAll",
     "lint": "eslint src",
     "prepublish": "npm run clean && npm run build"
@@ -19,7 +19,8 @@
     "props",
     "scu",
     "shouldComponentUpdate",
-    "decorator"
+    "decorator",
+    "es2017"
   ],
   "files": [
     "lib",

@@ -1,5 +1,5 @@
 module.exports = {
-  rootDir: '../',
+  rootDir: '.',
   roots: ['<rootDir>/src', '<rootDir>/test'],
   verbose: true,
   transform: {
